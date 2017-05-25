@@ -77,7 +77,7 @@
     <dependency>
       <groupId>org.datavec</groupId>
       <artifactId>datavec-spark_${scala.binary.version}</artifactId>
-      <version>${datavec.spark.version}</version>
+      <version>0.8.0_spark_2</version>
     </dependency>
     <!-- /TH -->
     <dependency>
