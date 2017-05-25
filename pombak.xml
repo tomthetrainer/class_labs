@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ai.skymind.training</groupId>
+  <artifactId>training-parent</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>training-parent</name>
+
+  <!--
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <slf4j.version>1.7.5</slf4j.version>
+    <jackson.version>2.5.1</jackson.version>
+    <java.version>1.8</java.version>
+
+    <nd4j.backend>nd4j-native</nd4j.backend>
+    <arbiter.version>0.7.2</arbiter.version>
+    <nd4j.version>0.7.3-SNAPSHOT</nd4j.version>
+    <dl4j.version>0.7.3-SNAPSHOT</dl4j.version>
+    <datavec.version>0.7.3-SNAPSHOT</datavec.version>
+    <guava.version>19.0</guava.version>
+    <slf4j.version>1.7.21</slf4j.version>
+    <logback.version>1.1.7</logback.version>
+    <scala.binary.version>2.10</scala.binary.version>
+  </properties>
+-->
+  <properties>
+    <!-- Change the nd4j.backend property to nd4j-cuda-7.5-platform or nd4j-cuda-8.0-platform to use CUDA GPUs -->
+    <nd4j.backend>nd4j-native-platform</nd4j.backend>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <shadedClassifier>bin</shadedClassifier>
+    <java.version>1.8</java.version>
+    <nd4j.version>0.7.3-SNAPSHOT</nd4j.version>
+    <dl4j.version>0.7.3-SNAPSHOT</dl4j.version>
+    <datavec.version>0.7.3-SNAPSHOT</datavec.version>
+    <arbiter.version>0.7.2</arbiter.version>
+    <rl4j.version>0.7.2</rl4j.version>
+    <guava.version>19.0</guava.version>
+    <logback.version>1.1.7</logback.version>
+    <jfreechart.version>1.0.13</jfreechart.version>
+    <jcommon.version>1.0.23</jcommon.version>
+    <maven-shade-plugin.version>2.4.3</maven-shade-plugin.version>
+    <exec-maven-plugin.version>1.4.0</exec-maven-plugin.version>
+    <maven.minimum.version>3.3.1</maven.minimum.version>
+  </properties>
+
+
+
+
+  <modules>
+    <module>training-labs</module>
+  </modules>
+
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>1.6</version>
+        <configuration>
+          <createDependencyReducedPom>true</createDependencyReducedPom>
+          <filters>
+            <filter>
+              <artifact>*:*</artifact>
+              <excludes>
+                <exclude>org/datanucleus/**</exclude>
+                <exclude>META-INF/*.SF</exclude>
+                <exclude>META-INF/*.DSA</exclude>
+                <exclude>META-INF/*.RSA</exclude>
+              </excludes>
+            </filter>
+          </filters>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer
+                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                  <resource>reference.conf</resource>
+                </transformer>
+                <transformer
+                        implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                <transformer
+                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
