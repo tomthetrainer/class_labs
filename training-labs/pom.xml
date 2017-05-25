@@ -157,7 +157,7 @@
 
       <dependency>
           <groupId>org.deeplearning4j</groupId>
-          <artifactId>spark_2.11</artifactId>
+          <artifactId>spark_2.10</artifactId>
           <version>0.8.0_spark_1</version>
       </dependency>
 
