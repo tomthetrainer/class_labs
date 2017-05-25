@@ -70,12 +70,16 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <!--TH ADD -->
-<scala.binary.version>2.11</scala.binary.version>
-    <!-- /TH ADD -->
   </properties>
 
   <dependencies>
+    <!--TH ADD -->
+    <dependency>
+      <groupId>org.datavec</groupId>
+      <artifactId>datavec-spark_${scala.binary.version}</artifactId>
+      <version>${datavec.spark.version}</version>
+    </dependency>
+    <!-- /TH -->
     <dependency>
       <groupId>org.nd4j</groupId>
       <artifactId>${nd4j.backend}</artifactId>
