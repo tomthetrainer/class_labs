@@ -9,6 +9,7 @@ import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
 import org.datavec.api.transform.TransformProcess;
 import org.datavec.api.transform.analysis.DataAnalysis;
 import org.datavec.api.transform.schema.Schema;
+import org.datavec.api.transform.ui.HtmlAnalysis;
 import org.datavec.api.util.ClassPathResource;
 import org.datavec.api.writable.Writable;
 import org.datavec.spark.transform.AnalyzeSpark;
@@ -96,6 +97,9 @@ import java.util.List;
         int maxHistogramBuckets = 10;
         DataAnalysis dataAnalysis = AnalyzeSpark.analyze(schema, parsedInputData, maxHistogramBuckets);
         String dataAnalysisString = dataAnalysis.toString();
+        // write to html
+        HtmlAnalysis.createHtmlAnalysisFile(dataAnalysis, new File(outputPath + "/AbeloneAnalysis.html"));
+
 
 
         // Define a transform process

@@ -75,11 +75,11 @@
   <dependencies>
     <!--TH ADD -->
     <dependency>
-      <groupId>org.datavec</groupId>
-      <artifactId>datavec-spark_2.11</artifactId>
-      <version>0.8.0_spark_2</version>
-    </dependency>
-    <!-- /TH -->
+            <groupId>org.datavec</groupId>
+            <artifactId>datavec-spark_${scala.binary.version}</artifactId>
+            <version>${datavec.spark.version}</version>
+        </dependency>
+       <!-- /TH -->
     <dependency>
       <groupId>org.nd4j</groupId>
       <artifactId>${nd4j.backend}</artifactId>
@@ -142,25 +142,28 @@
       <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.11 -->
 
 
-
+<!--
     <dependency>
       <groupId>org.datavec</groupId>
       <artifactId>datavec-spark_2.10</artifactId>
       <version>0.7.3-SNAPSHOT</version>
     </dependency>
-
+-->
+<!--
     <dependency>
           <groupId>org.apache.spark</groupId>
           <artifactId>spark-core_2.10</artifactId>
           <version>1.6.2</version>
       </dependency>
 
+-->
+<!--
       <dependency>
           <groupId>org.deeplearning4j</groupId>
           <artifactId>spark_2.10</artifactId>
           <version>0.8.0_spark_1</version>
       </dependency>
-
+-->
 
     <dependency>
       <groupId>com.typesafe</groupId>
@@ -173,12 +176,13 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+<!-- TH TODAY
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-core_2.10</artifactId>
       <version>1.6.2</version>
     </dependency>
-
+-->
 
   </dependencies>
 </project>
