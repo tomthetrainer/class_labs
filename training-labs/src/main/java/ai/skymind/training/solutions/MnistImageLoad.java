@@ -1,5 +1,6 @@
 package ai.skymind.training.solutions;
 
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.util.ClassPathResource;
 import org.datavec.image.loader.NativeImageLoader;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
@@ -44,6 +45,7 @@ public class MnistImageLoad {
     private static Logger log = LoggerFactory.getLogger(MnistImageLoad.class);
 
     public static void main(String[] args) throws Exception {
+        BasicConfigurator.configure();
         // image information
         // 28 * 28 grayscale
         // grayscale implies single channel

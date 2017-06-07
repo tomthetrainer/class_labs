@@ -1,5 +1,6 @@
 package ai.skymind.training.solutions;
 
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.util.ClassPathResource;
 import org.datavec.image.loader.NativeImageLoader;
 import org.deeplearning4j.nn.graph.ComputationGraph;
@@ -19,6 +20,7 @@ import java.io.InputStreamReader;
 public class VGG16TextInput {
 
     public  static void main(String[] args) throws Exception {
+        BasicConfigurator.configure();
         File savedNetwork = new ClassPathResource("vgg16.zip").getFile();
 
         //File locationToSave = new File("/Users/tomhanlon/SkyMind/java/Class_Labs/vgg16.zip");

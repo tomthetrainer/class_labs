@@ -1,5 +1,6 @@
 package ai.skymind.training.solutions;
 
+import org.apache.log4j.BasicConfigurator;
 import org.deeplearning4j.text.tokenization.tokenizer.Tokenizer;
 import org.deeplearning4j.text.tokenization.tokenizerfactory.DefaultTokenizerFactory;
 import org.deeplearning4j.text.tokenization.tokenizerfactory.NGramTokenizerFactory;
@@ -23,6 +24,7 @@ public class NGrams {
     }
 
     public static void main(String[] args) throws Exception{
+        BasicConfigurator.configure();
         String toTokenize = "To boldly go where no one has gone before.";
         TokenizerFactory factory = new NGramTokenizerFactory(new DefaultTokenizerFactory(), 1, 2);
         Tokenizer tokenizer = factory.create(toTokenize);

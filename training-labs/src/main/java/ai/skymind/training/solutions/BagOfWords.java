@@ -4,6 +4,7 @@ package ai.skymind.training.solutions;
  * Created by tomhanlon on 2/3/17.
  */
 
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.util.ClassPathResource;
 import org.deeplearning4j.bagofwords.vectorizer.BagOfWordsVectorizer;
 import org.deeplearning4j.models.word2vec.VocabWord;
@@ -31,6 +32,7 @@ public class BagOfWords {
     private static Logger log = LoggerFactory.getLogger(BagOfWords.class);
 
     public static void main(String[] args) throws Exception{
+        BasicConfigurator.configure();
         //reads directory bow, which contains 2 files
         File rootDir = new ClassPathResource("bow").getFile();
         TokenizerFactory tokenizerFactory = new DefaultTokenizerFactory();

@@ -1,5 +1,6 @@
 package ai.skymind.training.demos;
 
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.util.ClassPathResource;
 import org.datavec.image.loader.NativeImageLoader;
 import org.deeplearning4j.nn.graph.ComputationGraph;
@@ -27,6 +28,7 @@ import static spark.Spark.*;
 
 public class VGG16SparkJavaWebApp {
     public static void main(String[] args) throws Exception {
+        BasicConfigurator.configure();
 
         /*
         Demonstration instructions

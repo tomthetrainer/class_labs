@@ -1,5 +1,6 @@
 package ai.skymind.training.solutions;
 
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.io.labels.ParentPathLabelGenerator;
 import org.datavec.api.split.FileSplit;
 import org.datavec.api.util.ClassPathResource;
@@ -50,6 +51,7 @@ public class ConvNeuralNet {
 
 
         public static void main(String[] args) throws Exception {
+            BasicConfigurator.configure();
             // image information
             // 28 * 28 grayscale
             // grayscale implies single channel

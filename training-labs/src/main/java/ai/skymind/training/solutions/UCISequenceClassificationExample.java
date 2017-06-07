@@ -1,5 +1,6 @@
 package ai.skymind.training.solutions;
 
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.records.reader.SequenceRecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVSequenceRecordReader;
 import org.datavec.api.split.NumberedFileInputSplit;
@@ -40,6 +41,7 @@ public class UCISequenceClassificationExample {
     private static final Logger log = LoggerFactory.getLogger(UCISequenceClassificationExample.class);
 
     public static void main(String[] args) throws Exception {
+        BasicConfigurator.configure();
 
         /*
             STEP I.

@@ -1,5 +1,6 @@
 package ai.skymind.training.solutions;
 
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.util.ClassPathResource;
 import org.deeplearning4j.nn.api.Layer;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
@@ -61,6 +62,7 @@ import java.util.Random;
  */
 public class GravesLSTMCharModellingWeatherForecasts {
 	public static void main( String[] args ) throws Exception {
+		BasicConfigurator.configure();
 		int lstmLayerSize = 200;					//Number of units in each GravesLSTM layer
 		int miniBatchSize = 32;						//Size of mini batch to use when  training
 		int exampleLength = 4000;					//Length of each training example sequence to use. This could certainly be increased

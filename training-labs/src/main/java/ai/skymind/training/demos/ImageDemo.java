@@ -3,6 +3,7 @@ package ai.skymind.training.demos;
 /**
  * Created by tomhanlon on 2/21/17.
  */
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.image.loader.NativeImageLoader;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.api.preprocessor.DataNormalization;
@@ -17,6 +18,7 @@ import java.io.File;
  */
 public class ImageDemo {
     public static void main(String[]args) throws Exception{
+        BasicConfigurator.configure();
         NativeImageLoader loader = new NativeImageLoader(4, 4, 1);
         File image = new ClassPathResource("44.png").getFile();
         INDArray imagematrix = loader.asMatrix(image);

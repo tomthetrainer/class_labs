@@ -1,5 +1,6 @@
 package ai.skymind.training.solutions;
 
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.util.ClassPathResource;
 import org.deeplearning4j.bagofwords.vectorizer.BagOfWordsVectorizer;
 import org.deeplearning4j.text.documentiterator.FilenamesLabelAwareIterator;
@@ -23,6 +24,7 @@ public class BagofWords2 {
     private static Logger log = LoggerFactory.getLogger(BagofWords2.class);
 
     public static void main(String[] args) throws Exception{
+        BasicConfigurator.configure();
         /*
         Read a Directory of files
         Label them with the filename

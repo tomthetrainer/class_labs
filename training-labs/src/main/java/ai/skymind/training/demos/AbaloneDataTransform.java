@@ -1,6 +1,7 @@
 package ai.skymind.training.demos;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.BasicConfigurator;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -46,6 +47,7 @@ import java.util.List;
 
  public class AbaloneDataTransform {
     public static void main(String[] args) throws Exception {
+        BasicConfigurator.configure();
         String timeStamp = String.valueOf(new Date().getTime());
         ZoneId zoneId = ZoneId.of( "America/Montreal" );
         ZonedDateTime now = ZonedDateTime.now( zoneId );

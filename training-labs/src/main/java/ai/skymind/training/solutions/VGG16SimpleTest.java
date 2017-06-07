@@ -1,4 +1,5 @@
 package ai.skymind.training.solutions;
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.util.ClassPathResource;
 import org.datavec.image.loader.NativeImageLoader;
 import org.deeplearning4j.nn.graph.ComputationGraph;
@@ -18,7 +19,7 @@ public class VGG16SimpleTest {
     public static final int batchSize = 2;
 
     public static void main(String [] args) throws Exception {
-
+        BasicConfigurator.configure();
 
 
 

@@ -1,5 +1,6 @@
 package ai.skymind.training.solutions;
 
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.records.reader.RecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
 import org.datavec.api.split.FileSplit;
@@ -17,6 +18,7 @@ import org.slf4j.LoggerFactory;
 public class TestDataVec {
     private static Logger log = LoggerFactory.getLogger(TestDataVec.class);
     public static void main(String[] args) throws  Exception{
+        BasicConfigurator.configure();
 
         int numLinesToSkip = 0;
         String delimiter = ",";

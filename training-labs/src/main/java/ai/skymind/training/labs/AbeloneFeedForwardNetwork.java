@@ -1,5 +1,6 @@
 package ai.skymind.training.labs;
 
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.records.reader.RecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
 import org.datavec.api.split.FileSplit;
@@ -31,6 +32,7 @@ import java.io.File;
 public class AbeloneFeedForwardNetwork {
     private static Logger log = LoggerFactory.getLogger(AbeloneFeedForwardNetwork.class);
     public static void main(String[] args) throws Exception {
+        BasicConfigurator.configure();
 
         /*
         Lab Intro:

@@ -1,5 +1,6 @@
 package ai.skymind.training.solutions;
 
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.util.ClassPathResource;
 import org.deeplearning4j.nn.modelimport.keras.KerasModelImport;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
@@ -42,6 +43,7 @@ import org.nd4j.linalg.factory.Nd4j;
 
 public class KerasModelImportExample {
     public static void main(String[] args) throws Exception{
+        BasicConfigurator.configure();
 
 
         //Path to Saved Model and weights

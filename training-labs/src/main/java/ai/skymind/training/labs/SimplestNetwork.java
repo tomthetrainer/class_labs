@@ -1,5 +1,6 @@
 package ai.skymind.training.labs;
 
+import org.apache.log4j.BasicConfigurator;
 import org.deeplearning4j.api.storage.StatsStorage;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
@@ -27,6 +28,7 @@ import java.util.Random;
 public class SimplestNetwork {
     private static Logger log = LoggerFactory.getLogger(SimplestNetwork.class);
     public static void main(String[] args) throws  Exception{
+        BasicConfigurator.configure();
         /*
         Most Basic NN that takes a single input
          */

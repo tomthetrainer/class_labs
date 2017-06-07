@@ -1,6 +1,7 @@
 package ai.skymind.training.solutions;
 
 import org.apache.commons.math3.fitting.leastsquares.LeastSquaresProblem;
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.records.reader.RecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
 import org.datavec.api.split.FileSplit;
@@ -33,6 +34,7 @@ public class DataVecLab {
     private static Logger log = LoggerFactory.getLogger(DataVecLab.class);
 
     public static void main(String[] args) throws  Exception {
+        BasicConfigurator.configure();
 
         //First: get the dataset using the record reader. CSVRecordReader handles loading/parsing
         int numLinesToSkip = 0;
