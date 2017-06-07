@@ -2,6 +2,7 @@ package ai.skymind.training.demos;
 
 import org.apache.log4j.BasicConfigurator;
 import org.deeplearning4j.api.storage.StatsStorage;
+import org.deeplearning4j.eval.Evaluation;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.Updater;
