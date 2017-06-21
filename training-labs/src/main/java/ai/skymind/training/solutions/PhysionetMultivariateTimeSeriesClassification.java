@@ -1,4 +1,4 @@
-package ai.skymind.training.exercises;
+package ai.skymind.training.solutions;
 import org.datavec.api.records.reader.SequenceRecordReader;
 import org.datavec.api.records.reader.RecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVSequenceRecordReader;
@@ -46,14 +46,14 @@ import org.datavec.api.transform.transform.column.RemoveColumnsTransform;
 public class PhysionetMultivariateTimeSeriesClassification{
 
     // Change directory
-    private static File baseDir = new File("/Users/Briton/Desktop/resourcesP/physionet2012");
+    private static File baseDir = new File("/src/main/resources/physionet2012");
     private static File featuresDir = new File(baseDir, "sequence");
 
     /* Task-specific configuration */
     private static File labelsDir = new File(baseDir, "mortality");
 
     // For logging with SL4J
-    private static final Logger log = LoggerFactory.getLogger(LstmSingleTask.class);
+    private static final Logger log = LoggerFactory.getLogger(PhysionetMultivariateTimeSeriesClassification.class);
 
     // Number of training, validation, test examples
     public static int NB_INPUTS = 86;
