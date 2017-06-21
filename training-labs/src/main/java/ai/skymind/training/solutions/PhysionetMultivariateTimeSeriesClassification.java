@@ -43,7 +43,7 @@ import org.datavec.api.transform.transform.column.RemoveColumnsTransform;
  *
  *
  */
-public class LstmSingleTask {
+public class PhysionetMultivariateTimeSeriesClassification{
 
     // Change directory
     private static File baseDir = new File("/Users/Briton/Desktop/resourcesP/physionet2012");
