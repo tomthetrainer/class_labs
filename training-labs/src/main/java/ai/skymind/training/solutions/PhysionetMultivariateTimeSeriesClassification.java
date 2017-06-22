@@ -115,17 +115,37 @@ public class PhysionetMultivariateTimeSeriesClassification{
         }
 
         else{
-            Schema schema =  new Schema.Builder().addColumnsDouble("Time","Elapsed","ALP","ALPMissing","ALT","ALTMissing",
-                    "AST","ASTMissing","Age","AgeMissing","Albumin","AlbuminMissing","BUN","BUNMissing","Bilirubin",
-                    "BilirubinMissing","Cholesterol","CholesterolMissing","Creatinine","CreatinineMissing","DiasABP",
-                    "DiasABPMissing","FiO2","FiO2Missing","GCS","GCSMissing","Gender0","Gender1","Glucose","GlucoseMissing",
-                    "HCO3","HCO3Missing","HCT","HCTMissing","HR","HRMissing","Height","HeightMissing","ICUType1","ICUType2",
-                    "ICUType3","ICUType4","K","KMissing","Lactate","LactateMissing","MAP","MAPMissing","MechVent",
-                    "MechVentMissing","Mg","MgMissing","NIDiasABP","NIDiasABPMissing","NIMAP","NIMAPMissing","NISysABP",
-                    "NISysABPMissing","Na","NaMissing","PaCO2","PaCO2Missing","PaO2","PaO2Missing","Platelets",
-                    "PlateletsMissing","RespRate","RespRateMissing","SaO2","SaO2Missing","SysABP","SysABPMissing","Temp"
-                    ,"TempMissing","TroponinI","TroponinIMissing","TroponinT","TroponinTMissing","Urine","UrineMissing","WBC",
-                    "WBCMissing","Weight","WeightMissing","pH","pHMissing").build();
+            Schema schema =  new SequenceSchema.Builder()
+                    .addColumnsDouble("Time","Elapsed","ALP").addColumnCategorical("ALPMissing")
+                    .addColumnDouble("ALT").addColumnCategorical("ALTMissing").addColumnDouble("AST")
+                    .addColumnCategorical("ASTMissing").addColumnDouble("Age").addColumnCategorical("AgeMissing")
+                    .addColumnDouble("Albumin").addColumnCategorical("AlbuminMissing").addColumnDouble("BUN")
+                    .addColumnCategorical("BUNMissing").addColumnDouble("Bilirubin").addColumnCategorical("BilirubinMissing")
+                    .addColumnDouble("Cholesterol").addColumnCategorical("CholesterolMissing").addColumnDouble("Creatinine")
+                    .addColumnCategorical("CreatinineMissing").addColumnDouble("DiasABP").addColumnCategorical("DiasABPMissing")
+                    .addColumnDouble("FiO2").addColumnCategorical("FiO2Missing").addColumnDouble("GCS")
+                    .addColumnCategorical("GCSMissing").addColumnCategorical("Gender0").addColumnCategorical("Gender1")
+                    .addColumnDouble("Glucose").addColumnCategorical("GlucoseMissing").addColumnDouble("HCO3")
+                    .addColumnCategorical("HCO3Missing").addColumnDouble("HCT").addColumnCategorical("HCTMissing")
+                    .addColumnDouble("HR").addColumnCategorical("HRMissing").addColumnDouble("Height")
+                    .addColumnCategorical("HeightMissing").addColumnCategorical("ICUType1").addColumnCategorical("ICUType2")
+                    .addColumnCategorical("ICUType3").addColumnCategorical("ICUType4").addColumnDouble("K")
+                    .addColumnCategorical("KMissing").addColumnDouble("Lactate").addColumnCategorical("LactateMissing")
+                    .addColumnDouble("MAP").addColumnCategorical("MAPMissing").addColumnDouble("MechVent")
+                    .addColumnCategorical("MechVentMissing").addColumnDouble("Mg").addColumnCategorical("MgMissing")
+                    .addColumnDouble("NIDiasABP").addColumnCategorical("NIDiasABPMissing").addColumnDouble("NIMAP")
+                    .addColumnCategorical("NIMAPMissing").addColumnDouble("NISysABP").addColumnCategorical("NISysABPMissing")
+                    .addColumnDouble("Na").addColumnCategorical("NaMissing").addColumnDouble("PaCO2")
+                    .addColumnCategorical("PaCO2Missing").addColumnDouble("PaO2").addColumnCategorical("PaO2Missing")
+                    .addColumnDouble("Platelets").addColumnCategorical("PlateletsMissing").addColumnDouble("RespRate")
+                    .addColumnCategorical("RespRateMissing").addColumnDouble("SaO2").addColumnCategorical("SaO2Missing")
+                    .addColumnDouble("SysABP").addColumnCategorical("SysABPMissing").addColumnDouble("Temp")
+                    .addColumnCategorical("TempMissing").addColumnDouble("TroponinI").addColumnCategorical("TroponinIMissing")
+                    .addColumnDouble("TroponinT").addColumnCategorical("TroponinTMissing").addColumnDouble("Urine")
+                    .addColumnCategorical("UrineMissing").addColumnDouble("WBC").addColumnCategorical("WBCMissing")
+                    .addColumnDouble("Weight").addColumnCategorical("WeightMissing").addColumnDouble("pH")
+                    .addColumnCategorical("pHMissing").build();
+            
             TransformProcess transformProcess;
 
             if(remove == 0){
