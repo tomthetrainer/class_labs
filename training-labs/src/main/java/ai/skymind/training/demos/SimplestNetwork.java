@@ -22,6 +22,7 @@ import org.nd4j.linalg.lossfunctions.LossFunctions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -47,7 +48,7 @@ public class SimplestNetwork {
 
         int numOutputs = 1; // number of output nodes
 
-        int nHidden = 5; // number of hidden nodes
+        int nHidden = 1; // number of hidden nodes
         /*
         Create our input values and expected output values
         All data in all Neural Networks are represented as
@@ -120,11 +121,27 @@ public class SimplestNetwork {
         for( int i=0; i<nEpochs; i++ ){
             model.fit(input,output);
             INDArray params = model.params();
+            Map paramtable = model.paramTable();
             System.out.println(params);
+            System.out.println(paramtable);
             INDArray output2 = model.output(input);
             log.info(output2.toString());
             Thread.sleep(100);
         }
+
+        /*
+        Some examples from the output
+        param table
+        {0_W=2.00, 0_b=-0.03, 1_W=-0.16, 1_b=0.26}
+        Input is always .5
+        First calculation
+        Sum of inputs * weights + bias
+        .5 * 2 -.03 = .97
+        If activation is identity output is .97
+        If activation is tanh output is tanh(.97)
+
+
+         */
 
     }
 }
