@@ -46,7 +46,7 @@ import org.datavec.api.transform.transform.column.RemoveColumnsTransform;
 public class PhysionetMultivariateTimeSeriesClassification{
 
     // Change directory
-    private static File baseDir = new File("/src/main/resources/physionet2012");
+    private static File baseDir = new File("src/main/resources/physionet2012");
     private static File featuresDir = new File(baseDir, "sequence");
 
     /* Task-specific configuration */
