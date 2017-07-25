@@ -24,6 +24,8 @@ import static spark.Spark.*;
 
 /**
  * Created by tomhanlon on 1/25/17.
+ * File that you need is available here
+ * https://github.com/tomthetrainer/KerasWorkshop/releases/download/v0.10/vgg16.zip
  */
 
 public class VGG16SparkJavaWebApp {

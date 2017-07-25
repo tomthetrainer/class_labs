@@ -60,7 +60,7 @@ import java.util.Random;
     http://deeplearning4j.org/lstm
     http://deeplearning4j.org/recurrentnetwork
  */
-public class GravesLSTMCharModellingWeatherForecasts {
+public class  GravesLSTMCharModellingWeatherForecasts {
 	public static void main( String[] args ) throws Exception {
 		BasicConfigurator.configure();
 		int lstmLayerSize = 200;					//Number of units in each GravesLSTM layer

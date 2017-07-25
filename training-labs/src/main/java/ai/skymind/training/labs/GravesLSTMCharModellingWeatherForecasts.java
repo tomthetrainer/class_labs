@@ -97,19 +97,29 @@ public class GravesLSTMCharModellingWeatherForecasts {
 
 		 */
 
-		/*
+
 		MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
-			.optimizationAlgo(OptimizationAlgorithm.**YOUR CODE HERE**).iterations(1)
+			.optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT).iterations(1)
 			.learningRate(0.1)
 			.rmsDecay(0.95)
 			.seed(12345)
 			.regularization(true)
+				.updater(Updater.RMSPROP)
 			.l2(0.001)
-            .weightInit(WeightInit.*** YOUR CODE HERE ****)
-            .updater(Updater.*** YOUR CODE HERE ***)
-			.list()
+            .weightInit(WeightInit.XAVIER)
+				.list()
+				.layer(0, new GravesLSTM.Builder().nIn(iter.inputColumns()).nOut(lstmLayerSize)
+						.activation(Activation.TANH).build())
+				.layer(1, new GravesLSTM.Builder().nIn(lstmLayerSize).nOut(lstmLayerSize)
+						.activation("tanh").build())
+				.layer(2, new RnnOutputLayer.Builder(LossFunction.MCXENT).activation("softmax")
+						.nIn(lstmLayerSize).nOut(nOut).build())
+				.backpropType(BackpropType.TruncatedBPTT).tBPTTBackwardLength(tbpttLength).tBPTTBackwardLength(tbpttLength)
+				.pretrain(false).backprop(true)
+				.build();
 
-		*/
+
+
 
 		/*
 		######## LAB STEP 2 #############
@@ -136,7 +146,9 @@ public class GravesLSTMCharModellingWeatherForecasts {
 		 */
 
 		// YOUR CODE HERE
-
+		MultiLayerNetwork net = new MultiLayerNetwork(conf);
+		net.init();
+		net.setListeners(new ScoreIterationListener(1));
 
 
 
