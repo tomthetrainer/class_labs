@@ -72,7 +72,7 @@ public class SimplestNetwork {
             .updater(Updater.NESTEROVS).momentum(0.09) // How to update the weights start with momentum of 0.09
             .list()
             .layer(0, new DenseLayer.Builder().nIn(numInputs).nOut(nHidden)
-                .activation(Activation.TANH)
+                .activation(Activation.IDENTITY)
                 .build())
             .layer(1, new OutputLayer.Builder(LossFunctions.LossFunction.MSE)
                 .activation(Activation.IDENTITY)

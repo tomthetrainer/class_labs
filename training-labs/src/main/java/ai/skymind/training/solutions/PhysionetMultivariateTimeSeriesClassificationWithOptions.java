@@ -1,6 +1,6 @@
 package ai.skymind.training.solutions;
+import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.records.reader.SequenceRecordReader;
-import org.datavec.api.records.reader.RecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVSequenceRecordReader;
 import org.datavec.api.records.reader.impl.transform.TransformProcessSequenceRecordReader;
 import org.datavec.api.split.NumberedFileInputSplit;
@@ -12,21 +12,17 @@ import org.deeplearning4j.datasets.datavec.SequenceRecordReaderDataSetIterator;
 import org.deeplearning4j.eval.ROC;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.ComputationGraphConfiguration;
-import org.deeplearning4j.nn.conf.GradientNormalization;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
-import org.deeplearning4j.nn.conf.BackpropType;
 import org.deeplearning4j.nn.conf.Updater;
-import org.deeplearning4j.nn.conf.inputs.InputType;
 import org.deeplearning4j.nn.conf.layers.GravesLSTM;
-import org.deeplearning4j.nn.conf.layers.LossLayer;
 import org.deeplearning4j.nn.conf.layers.RnnOutputLayer;
 import org.deeplearning4j.nn.graph.ComputationGraph;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
+import org.deeplearning4j.util.ModelSerializer;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.api.DataSet;
-import org.nd4j.linalg.lossfunctions.impl.LossBinaryXENT;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +31,6 @@ import java.io.File;
 import java.io.IOException;
 
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
-import org.datavec.api.transform.transform.column.RemoveColumnsTransform;
 
 /**
  * EXERCISE 4: train a LSTM to predict mortality using the Physionet
@@ -43,17 +38,19 @@ import org.datavec.api.transform.transform.column.RemoveColumnsTransform;
  *
  *
  */
-public class PhysionetMultivariateTimeSeriesClassification{
+public class PhysionetMultivariateTimeSeriesClassificationWithOptions {
 
     // Change directory
-    private static File baseDir = new File("/src/main/resources/physionet2012");
+
+
+    private static File baseDir = new File("src/main/resources/physionet2012");
     private static File featuresDir = new File(baseDir, "sequence");
 
     /* Task-specific configuration */
     private static File labelsDir = new File(baseDir, "mortality");
 
     // For logging with SL4J
-    private static final Logger log = LoggerFactory.getLogger(PhysionetMultivariateTimeSeriesClassification.class);
+    private static final Logger log = LoggerFactory.getLogger(PhysionetMultivariateTimeSeriesClassificationWithOptions.class);
 
     // Number of training, validation, test examples
     public static int NB_INPUTS = 86;
@@ -69,6 +66,7 @@ public class PhysionetMultivariateTimeSeriesClassification{
 
 
     public static void main(String[] args) throws IOException, InterruptedException {
+        BasicConfigurator.configure();
 
         // STEP 0: Flags controlling which data
 
@@ -260,6 +258,13 @@ public class PhysionetMultivariateTimeSeriesClassification{
 
             trainData.reset();
             validData.reset();
+            if (i % 5 == 0) {
+                log.info("EPOCH" + i + "ModelSerializer Write to File");
+                File locationToSave = new File("/tmp/physionet" + i + ".zip");
+                ModelSerializer.writeModel(model,locationToSave,true);
+
+            }
+
         }
 
         ROC roc = new ROC(100);
