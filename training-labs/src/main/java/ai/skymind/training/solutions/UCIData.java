@@ -2,7 +2,7 @@ package ai.skymind.training.solutions;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.datavec.api.berkeley.Pair;
+import org.nd4j.linalg.primitives.Pair;
 
 import java.io.File;
 import java.net.URL;

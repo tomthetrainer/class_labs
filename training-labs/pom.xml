@@ -94,7 +94,7 @@
 
     <dependency>
       <groupId>org.deeplearning4j</groupId>
-      <artifactId>deeplearning4j-ui_2.11</artifactId>
+      <artifactId>deeplearning4j-ui_${scala.binary.version}</artifactId>
       <version>${dl4j.version}</version>
     </dependency>
 
@@ -107,7 +107,7 @@
     <dependency>
       <groupId>org.deeplearning4j</groupId>
       <artifactId>deeplearning4j-modelimport</artifactId>
-      <version>0.8.0</version>
+      <version>${dl4j.version}</version>
     </dependency>
     <!-- th
     <dependency>
@@ -176,18 +176,5 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.datavec</groupId>
-      <artifactId>datavec-api</artifactId>
-      <version>0.8.1-SNAPSHOT</version>
-    </dependency>
-<!-- TH TODAY
-    <dependency>
-      <groupId>org.apache.spark</groupId>
-      <artifactId>spark-core_2.10</artifactId>
-      <version>1.6.2</version>
-    </dependency>
--->
-
   </dependencies>
 </project>
